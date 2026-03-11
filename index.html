@@ -287,7 +287,7 @@ nav {
 .cc-phone-icon { background:#dbeafe; color:#2563eb; }
 .cc-wa-icon    { background:#dcfce7; color:var(--green); }
 .cc-mail-icon  { background:#fef3c7; color:#d97706; }
-.cc-link-text strong { display:block; font-size:14px; color:#fff; font-weight:600; }
+.cc-link-text strong { display:block; font-size:14px; color:#fff; font-weight:600; word-break:break-all; }
 .cc-link-text span   { font-size:12px; color:rgba(255,255,255,0.4); }
 .cc-divider { height:1px; background:rgba(255,255,255,0.07); margin:20px 0; position:relative; z-index:1; }
 .cc-address {
@@ -317,6 +317,10 @@ footer {
 .d1 { transition-delay:0.1s; } .d2 { transition-delay:0.2s; } .d3 { transition-delay:0.3s; }
 
 /* RESPONSIVE */
+@media(max-width:480px){
+  .cc-link-text strong { font-size:12px; }
+  .cc-icon { width:36px; height:36px; }
+}
 @media(max-width:960px){
   nav { padding:14px 24px; }
   .hero { grid-template-columns:1fr; padding-bottom:60px; }
@@ -501,11 +505,11 @@ footer {
         </div>
         <div class="cc-link-text"><strong>15-6406-3162</strong><span>WhatsApp</span></div>
       </a>
-      <a href="mailto:mlimpositivolaboral@gmail.com?subject=Consulta%20-%20ML%20Asesor%C3%ADa%20Impositiva&body=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." class="cc-link">
+      <a href="/cdn-cgi/l/email-protection#197475707469766a706d706f7675787b766b7875597e74787075377a7674266a6c7b737c7a6d245a76776a6c756d783c2b29343c2b2954553c2b29586a7c6a766b3c5a2a3c585d783c2b29507469766a706d706f783f7b767d6024517675783c2b29556c7a783c2b5a3c2b29747c3c2b297a76776d787a6d763c2b297d7c6a7d7c3c2b296d6c3c2b296e7c7b3c2b2969786b783c2b297a76766b7d7077786b3c2b296c77783c2b297a76776a6c756d7837" class="cc-link">
         <div class="cc-icon cc-mail-icon">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
         </div>
-        <div class="cc-link-text"><strong>mlimpositivolaboral@gmail.com</strong><span>Correo electrónico</span></div>
+        <div class="cc-link-text"><strong><span class="__cf_email__" data-cfemail="600d0c090d100f13091409160f0c01020f12010c20070d01090c4e030f0d">[email&#160;protected]</span></strong><span>Correo electrónico</span></div>
       </a>
     </div>
     <div class="cc-divider"></div>
@@ -524,12 +528,3 @@ footer {
   </div>
   <p class="footer-copy">Un servicio acorde a tus necesidades · El Palomar, Buenos Aires</p>
 </footer>
-
-<script>
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-</body>
-</html>
