@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ML Asesoría Impositiva Laboral</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%230f2d3d'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='bold' fill='white'>ML</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -409,14 +410,14 @@ footer {
         </div>
         <div class="feature-item">
           <div class="feature-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg></div>
-          Profesional UBA con 20+ años de trayectoria
+          Profesional UBA con +20 años de trayectoria
         </div>
       </div>
     </div>
     <div class="about-visual-wrap reveal d2">
       <div class="about-img-bg"></div>
       <div class="about-img-card">
-        <div class="about-stat-box highlight"><div class="asn">20+</div><div class="asl">Años experiencia</div></div>
+        <div class="about-stat-box highlight"><div class="asn">+20</div><div class="asl">Años experiencia</div></div>
         <div class="about-stat-box"><div class="asn">UBA</div><div class="asl">Formación</div></div>
         <div class="about-tagline"><p>"Un servicio acorde a tus necesidades, con el respaldo de años de trayectoria contable."</p></div>
       </div>
@@ -502,11 +503,11 @@ footer {
         </div>
         <div class="cc-link-text"><strong>15-6406-3162</strong><span>WhatsApp</span></div>
       </a>
-      <a href="/cdn-cgi/l/email-protection#197475707469766a706d706f7675787b766b7875597e74787075377a7674266a6c7b737c7a6d245a76776a6c756d783c2b29343c2b2954553c2b29586a7c6a766b3c5a2a3c585d783c2b29507469766a706d706f783f7b767d6024517675783c2b29556c7a783c2b5a3c2b29747c3c2b297a76776d787a6d763c2b297d7c6a7d7c3c2b296d6c3c2b296e7c7b3c2b2969786b783c2b297a76766b7d7077786b3c2b296c77783c2b297a76776a6c756d7837" class="cc-link">
+      <a id="mail-link" href="#" class="cc-link">
         <div class="cc-icon cc-mail-icon">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
         </div>
-        <div class="cc-link-text"><strong><span class="__cf_email__" data-cfemail="600d0c090d100f13091409160f0c01020f12010c20070d01090c4e030f0d">[email&#160;protected]</span></strong><span>Correo electrónico</span></div>
+        <div class="cc-link-text"><strong id="mail-text"></strong><span>Correo electrónico</span></div>
       </a>
     </div>
     <div class="cc-divider"></div>
@@ -527,6 +528,17 @@ footer {
 </footer>
 
 <script>
+  // Fix email - construido via JS para evitar ofuscación de Cloudflare
+  (function() {
+    const u = 'mlimpositivolaboral';
+    const d = 'gmail' + '.' + 'com';
+    const email = u + '@' + d;
+    const link = document.getElementById('mail-link');
+    const text = document.getElementById('mail-text');
+    if (link) link.href = 'mailto:' + email + '?subject=Consulta%20-%20ML%20Asesor%C3%ADa%20Impositiva&body=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta.';
+    if (text) text.textContent = email;
+  })();
+
   // Solo ocultamos via JS si IntersectionObserver está disponible
   // Así si JS falla o tarda, el contenido es visible por defecto
   if ('IntersectionObserver' in window) {
