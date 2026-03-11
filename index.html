@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML Asesoría Impositiva Laboral</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:    #0f2d3d;
+  --teal:    #1a7a8a;
+  --teal-lt: #2a9db0;
+  --sky:     #e8f6f9;
+  --gold:    #e8a83a;
+  --gold-lt: #fdf3df;
+  --green:   #25D366;
+  --gray-50: #f8fafc;
+  --gray-100:#f0f4f8;
+  --gray-400:#94a3b8;
+  --gray-600:#475569;
+  --gray-800:#1e293b;
+  --radius:  16px;
+  --radius-sm: 10px;
+  --shadow:  0 4px 24px rgba(15,45,61,0.10);
+  --shadow-lg: 0 16px 48px rgba(15,45,61,0.15);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Plus Jakarta Sans', sans-serif; background:var(--gray-50); color:var(--gray-800); overflow-x:hidden; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:16px 48px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,0.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(15,45,61,0.07);
+}
+.nav-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo {
+  width:40px; height:40px; background:var(--navy);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces',serif; font-size:17px; color:#fff; font-weight:600;
+}
+.nav-name { font-size:14px; font-weight:600; color:var(--navy); line-height:1.2; }
+.nav-name span { display:block; font-size:11px; font-weight:400; color:var(--gray-400); }
+.nav-cta {
+  display:flex; align-items:center; gap:8px;
+  background:var(--teal); color:#fff; text-decoration:none;
+  padding:10px 22px; border-radius:50px;
+  font-size:13px; font-weight:600;
+  transition:all 0.25s;
+}
+.nav-cta:hover { background:var(--navy); transform:translateY(-1px); box-shadow:0 4px 16px rgba(26,122,138,0.35); }
+
+/* HERO */
+.hero {
+  min-height:100vh; padding-top:80px;
+  background:linear-gradient(145deg, var(--navy) 0%, #1a4a5e 60%, #1e6070 100%);
+  display:grid; grid-template-columns:1fr 1fr;
+  align-items:center;
+  position:relative; overflow:hidden;
+}
+.hero-blob { position:absolute; border-radius:50%; pointer-events:none; }
+.hero-blob-1 {
+  width:600px; height:600px;
+  background:radial-gradient(circle, rgba(26,122,138,0.3) 0%, transparent 70%);
+  top:-100px; right:-100px;
+}
+.hero-blob-2 {
+  width:400px; height:400px;
+  background:radial-gradient(circle, rgba(232,168,58,0.12) 0%, transparent 70%);
+  bottom:-50px; left:10%;
+}
+.hero-dots {
+  position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size:32px 32px;
+}
+.hero-left { padding:80px 60px 80px 80px; position:relative; z-index:2; }
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+  border-radius:50px; padding:8px 16px; margin-bottom:32px;
+  font-size:12px; color:rgba(255,255,255,0.85);
+  opacity:0; animation:fadeUp 0.7s 0.2s forwards;
+}
+.badge-dot { width:7px; height:7px; border-radius:50%; background:var(--gold); }
+.hero-title {
+  font-family:'Fraunces',serif;
+  font-size:clamp(40px,5.5vw,70px); font-weight:300; color:#fff; line-height:1.1; margin-bottom:24px;
+  opacity:0; animation:fadeUp 0.7s 0.35s forwards;
+}
+.hero-title strong { font-weight:600; color:var(--gold); display:block; font-style:italic; }
+.hero-desc {
+  font-size:16px; line-height:1.75; color:rgba(255,255,255,0.6);
+  max-width:460px; margin-bottom:44px; font-weight:300;
+  opacity:0; animation:fadeUp 0.7s 0.5s forwards;
+}
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; opacity:0; animation:fadeUp 0.7s 0.65s forwards; }
+.btn-gold {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--gold); color:var(--navy);
+  padding:15px 30px; border-radius:50px;
+  font-size:14px; font-weight:700; text-decoration:none; transition:all 0.25s;
+}
+.btn-gold:hover { background:#f0b84a; transform:translateY(-2px); box-shadow:0 8px 28px rgba(232,168,58,0.4); }
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1.5px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.85);
+  padding:15px 30px; border-radius:50px;
+  font-size:14px; font-weight:500; text-decoration:none; transition:all 0.25s;
+}
+.btn-ghost:hover { border-color:rgba(255,255,255,0.7); color:#fff; background:rgba(255,255,255,0.08); }
+.hero-stats {
+  display:flex; margin-top:56px;
+  opacity:0; animation:fadeUp 0.7s 0.8s forwards;
+}
+.stat { padding:20px 32px 20px 0; margin-right:32px; border-right:1px solid rgba(255,255,255,0.12); }
+.stat:last-child { border-right:none; }
+.stat-n { font-family:'Fraunces',serif; font-size:40px; font-weight:600; color:#fff; line-height:1; }
+.stat-n span { color:var(--gold); }
+.stat-l { font-size:11px; color:rgba(255,255,255,0.45); letter-spacing:0.1em; text-transform:uppercase; margin-top:4px; }
+.hero-right { position:relative; z-index:2; display:flex; align-items:center; justify-content:center; padding:60px; }
+.hero-card-stack { position:relative; width:340px; height:400px; }
+.hcard { position:absolute; border-radius:var(--radius); padding:36px; box-shadow:var(--shadow-lg); }
+.hcard-main {
+  width:300px; bottom:0; right:0;
+  background:linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%); color:#fff;
+}
+.hc-logo { font-family:'Fraunces',serif; font-size:52px; font-weight:600; color:#fff; line-height:1; margin-bottom:12px; }
+.hc-name { font-size:13px; font-weight:500; color:rgba(255,255,255,0.6); letter-spacing:0.06em; text-transform:uppercase; }
+.hcard-accent {
+  width:200px; top:0; left:0; text-align:center;
+  background:var(--gold-lt); border:2px solid var(--gold);
+}
+.hc-num { font-family:'Fraunces',serif; font-size:48px; font-weight:600; color:var(--gold); line-height:1; }
+.hc-label { font-size:11px; color:var(--gray-600); letter-spacing:0.1em; text-transform:uppercase; margin-top:6px; }
+.hcard-pill {
+  width:190px; top:50%; right:-20px; transform:translateY(-50%);
+  padding:18px 22px; background:#fff;
+  display:flex; align-items:center; gap:12px;
+  border-radius:50px; box-shadow:0 8px 30px rgba(15,45,61,0.14);
+}
+.hp-icon { width:38px; height:38px; border-radius:50%; background:var(--sky); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--teal); }
+.hp-text strong { display:block; color:var(--navy); font-size:13px; font-weight:700; }
+.hp-text span { color:var(--gray-400); font-size:11px; }
+
+/* NOSOTROS */
+.section-about {
+  padding:100px 80px; max-width:1280px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+}
+.pill-label {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--sky); color:var(--teal); border-radius:50px;
+  padding:6px 16px; font-size:12px; font-weight:700; letter-spacing:0.05em;
+  text-transform:uppercase; margin-bottom:20px;
+}
+.heading {
+  font-family:'Fraunces',serif;
+  font-size:clamp(32px,3.5vw,48px); font-weight:300; line-height:1.2;
+  color:var(--navy); margin-bottom:24px;
+}
+.heading em { font-style:italic; font-weight:600; color:var(--teal); }
+.body-text { font-size:15px; line-height:1.8; color:var(--gray-600); }
+.feature-list { margin-top:32px; display:flex; flex-direction:column; gap:14px; }
+.feature-item { display:flex; align-items:center; gap:14px; font-size:14px; color:var(--gray-600); font-weight:500; }
+.feature-icon {
+  width:36px; height:36px; border-radius:10px; background:var(--sky);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--teal);
+}
+.about-visual-wrap { position:relative; }
+.about-img-bg {
+  position:absolute; inset:-20px; border-radius:calc(var(--radius)+8px);
+  background:linear-gradient(135deg, var(--sky) 0%, #d4eff5 100%); z-index:0;
+}
+.about-img-card {
+  position:relative; z-index:1;
+  background:var(--navy); border-radius:var(--radius);
+  padding:40px; margin:20px;
+  display:grid; grid-template-columns:1fr 1fr; gap:16px;
+}
+.about-stat-box {
+  background:rgba(255,255,255,0.08); border-radius:var(--radius-sm);
+  padding:24px 20px; text-align:center;
+}
+.about-stat-box.highlight { background:var(--gold); }
+.asn { font-family:'Fraunces',serif; font-size:40px; font-weight:600; color:#fff; line-height:1; }
+.about-stat-box.highlight .asn { color:var(--navy); }
+.asl { font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:0.1em; text-transform:uppercase; margin-top:6px; }
+.about-stat-box.highlight .asl { color:rgba(15,45,61,0.55); }
+.about-tagline {
+  grid-column:1/-1; background:rgba(255,255,255,0.05);
+  border-radius:var(--radius-sm); padding:20px 24px; border-left:3px solid var(--gold);
+}
+.about-tagline p { font-size:14px; color:rgba(255,255,255,0.65); line-height:1.6; font-style:italic; }
+
+/* SERVICIOS */
+.section-services { background:var(--gray-100); padding:100px 80px; }
+.services-inner { max-width:1280px; margin:0 auto; }
+.services-header {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  flex-wrap:wrap; gap:24px; margin-bottom:56px;
+}
+.services-desc { font-size:15px; color:var(--gray-600); max-width:380px; line-height:1.7; }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.service-card {
+  background:#fff; border-radius:var(--radius); padding:36px 32px;
+  border:1.5px solid transparent; transition:all 0.3s; position:relative; overflow:hidden;
+}
+.service-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:3px; background:linear-gradient(90deg, var(--teal), var(--teal-lt));
+  transform:scaleX(0); transform-origin:left; transition:transform 0.35s;
+}
+.service-card:hover { border-color:var(--sky); box-shadow:var(--shadow-lg); transform:translateY(-4px); }
+.service-card:hover::after { transform:scaleX(1); }
+.sc-icon-wrap {
+  width:52px; height:52px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center; margin-bottom:24px;
+}
+.sc-blue  { background:#e0f2fe; color:#0284c7; }
+.sc-teal  { background:var(--sky); color:var(--teal); }
+.sc-amber { background:#fef3c7; color:#d97706; }
+.sc-title { font-size:18px; font-weight:700; color:var(--navy); margin-bottom:16px; line-height:1.3; }
+.sc-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
+.sc-list li { display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--gray-600); }
+.sc-list li::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--teal-lt); flex-shrink:0; }
+
+/* CTA BANNER */
+.section-cta {
+  background:linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+  padding:80px; text-align:center; position:relative; overflow:hidden;
+}
+.section-cta::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size:28px 28px;
+}
+.cta-inner { position:relative; z-index:1; max-width:640px; margin:0 auto; }
+.cta-inner .pill-label { background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.9); }
+.cta-title {
+  font-family:'Fraunces',serif;
+  font-size:clamp(32px,4vw,52px); font-weight:600; font-style:italic;
+  color:#fff; line-height:1.2; margin-bottom:16px;
+}
+.cta-sub { font-size:16px; color:rgba(255,255,255,0.6); margin-bottom:40px; line-height:1.7; }
+.cta-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  background:#fff; color:var(--navy);
+  padding:16px 36px; border-radius:50px;
+  font-size:15px; font-weight:700; text-decoration:none; transition:all 0.25s;
+}
+.cta-btn:hover { background:var(--gold-lt); transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,0.2); }
+.cta-btn .wa-icon { color:var(--green); }
+
+/* CONTACTO */
+.section-contact {
+  padding:100px 80px; max-width:1280px; margin:0 auto;
+  display:grid; grid-template-columns:1.1fr 1fr; gap:80px; align-items:center;
+}
+.contact-card {
+  background:var(--navy); border-radius:var(--radius);
+  padding:48px; position:relative; overflow:hidden;
+}
+.contact-card::before {
+  content:'ML'; position:absolute; right:-20px; bottom:-30px;
+  font-family:'Fraunces',serif; font-size:140px; font-weight:600;
+  color:rgba(255,255,255,0.04); line-height:1; pointer-events:none;
+}
+.cc-name { font-family:'Fraunces',serif; font-size:28px; font-weight:600; color:#fff; margin-bottom:4px; position:relative; z-index:1; }
+.cc-role { font-size:12px; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; font-weight:600; margin-bottom:36px; position:relative; z-index:1; }
+.cc-links { display:flex; flex-direction:column; gap:12px; position:relative; z-index:1; }
+.cc-link {
+  display:flex; align-items:center; gap:16px; text-decoration:none;
+  padding:14px 18px; border-radius:var(--radius-sm);
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08);
+  transition:all 0.25s;
+}
+.cc-link:hover { background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.2); transform:translateX(4px); }
+.cc-icon {
+  width:42px; height:42px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.cc-phone-icon { background:#dbeafe; color:#2563eb; }
+.cc-wa-icon    { background:#dcfce7; color:var(--green); }
+.cc-mail-icon  { background:#fef3c7; color:#d97706; }
+.cc-link-text strong { display:block; font-size:14px; color:#fff; font-weight:600; }
+.cc-link-text span   { font-size:12px; color:rgba(255,255,255,0.4); }
+.cc-divider { height:1px; background:rgba(255,255,255,0.07); margin:20px 0; position:relative; z-index:1; }
+.cc-address {
+  font-size:12px; color:rgba(255,255,255,0.3); line-height:1.7;
+  display:flex; align-items:flex-start; gap:10px; position:relative; z-index:1;
+}
+
+/* FOOTER */
+footer {
+  background:#070f14; padding:32px 80px;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+}
+.footer-brand { display:flex; align-items:center; gap:10px; }
+.footer-logo {
+  width:32px; height:32px; border-radius:8px; background:var(--teal);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces',serif; font-size:14px; color:#fff; font-weight:600;
+}
+.footer-name { font-size:13px; color:rgba(255,255,255,0.45); }
+.footer-name strong { color:rgba(255,255,255,0.7); }
+.footer-copy { font-size:12px; color:rgba(255,255,255,0.2); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(28px); transition:opacity 0.65s,transform 0.65s; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1 { transition-delay:0.1s; } .d2 { transition-delay:0.2s; } .d3 { transition-delay:0.3s; }
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav { padding:14px 24px; }
+  .hero { grid-template-columns:1fr; padding-bottom:60px; }
+  .hero-left { padding:60px 28px 40px; }
+  .hero-right { padding:0 28px 60px; justify-content:flex-start; }
+  .hero-card-stack { max-width:300px; height:340px; }
+  .stat { padding:16px 20px 16px 0; margin-right:20px; }
+  .section-about, .section-contact { grid-template-columns:1fr; padding:64px 28px; gap:48px; }
+  .section-services { padding:64px 28px; }
+  .services-grid { grid-template-columns:1fr; }
+  .services-header { flex-direction:column; }
+  .section-cta { padding:60px 28px; }
+  footer { padding:28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-logo">ML</div>
+    <div class="nav-name">
+      ML Asesoría
+      <span>Impositiva · Laboral</span>
+    </div>
+  </a>
+  <a href="#contacto" class="nav-cta">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>
+    Consulta gratis
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-left">
+    <div class="hero-badge"><span class="badge-dot"></span>Asesoría Impositiva · Laboral · Contable</div>
+    <h1 class="hero-title">Tu contabilidad,<strong>en las mejores manos.</strong></h1>
+    <p class="hero-desc">Más de 15 años de experiencia asesorando pymes, emprendedores y sociedades. Soluciones concretas, trato directo y servicio 100% personalizado.</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-gold">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/></svg>
+        Consulta sin cargo
+      </a>
+      <a href="#servicios" class="btn-ghost">Ver servicios →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">15<span>+</span></div><div class="stat-l">Años de exp.</div></div>
+      <div class="stat"><div class="stat-n"><span>UBA</span></div><div class="stat-l">Contador Público</div></div>
+      <div class="stat"><div class="stat-n">100<span>%</span></div><div class="stat-l">Personalizado</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card-stack">
+      <div class="hcard hcard-accent"><div class="hc-num">15</div><div class="hc-label">Años en el rubro</div></div>
+      <div class="hcard hcard-main"><div class="hc-logo">ML</div><div class="hc-name">Asesoría Impositiva Laboral</div></div>
+      <div class="hcard hcard-pill">
+        <div class="hp-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="hp-text"><strong>Consulta gratis</strong><span>Sin compromiso</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section style="background:#fff;overflow:hidden;">
+  <div class="section-about">
+    <div class="reveal">
+      <div class="pill-label">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+        Sobre nosotros
+      </div>
+      <h2 class="heading">Contabilidad con <em>criterio</em> y compromiso real</h2>
+      <p class="body-text">Somos un equipo liderado por un Contador Público egresado de la UBA, con más de 15 años en el rubro. Nos especializamos en el asesoramiento integral para pymes, emprendedores y sociedades, con foco en soluciones concretas y trato cercano.</p>
+      <p class="body-text" style="margin-top:16px;">Nuestro objetivo es simple: brindarte un servicio personalizado, proactivo y acorde a la realidad de tu negocio.</p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          Atención personalizada para cada cliente
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          Respuesta rápida y comunicación directa
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg></div>
+          Profesional UBA con 15+ años de trayectoria
+        </div>
+      </div>
+    </div>
+    <div class="about-visual-wrap reveal d2">
+      <div class="about-img-bg"></div>
+      <div class="about-img-card">
+        <div class="about-stat-box highlight"><div class="asn">15+</div><div class="asl">Años experiencia</div></div>
+        <div class="about-stat-box"><div class="asn">UBA</div><div class="asl">Formación</div></div>
+        <div class="about-tagline"><p>"Un servicio acorde a tus necesidades, con el respaldo de años de trayectoria contable."</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section-services" id="servicios">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div>
+        <div class="pill-label">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"/></svg>
+          Nuestros servicios
+        </div>
+        <h2 class="heading">Todo lo que tu negocio <em>necesita</em></h2>
+      </div>
+      <p class="services-desc">Cobertura completa en impuestos, laboral y registraciones para que te enfoques en lo que importa.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal d1">
+        <div class="sc-icon-wrap sc-blue">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg>
+        </div>
+        <h3 class="sc-title">Inscripciones AFIP</h3>
+        <ul class="sc-list"><li>Monotributo</li><li>Autónomos</li><li>IVA y Ganancias</li><li>Bienes Personales</li><li>Regímenes de información</li><li>Empleador</li></ul>
+      </div>
+      <div class="service-card reveal d2">
+        <div class="sc-icon-wrap sc-teal">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
+        </div>
+        <h3 class="sc-title">Liquidaciones Impositivas</h3>
+        <ul class="sc-list"><li>IVA</li><li>Ingresos Brutos (IIBB)</li><li>Ganancias</li><li>Bienes Personales</li><li>Convenio Multilateral</li><li>Seguridad e Higiene (AGIP)</li></ul>
+      </div>
+      <div class="service-card reveal d3">
+        <div class="sc-icon-wrap sc-amber">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>
+        </div>
+        <h3 class="sc-title">Registraciones & Laboral</h3>
+        <ul class="sc-list"><li>Inscripción ARBA</li><li>Ingresos Brutos</li><li>AGIP</li><li>Liquidación de sueldos</li><li>Contribuciones patronales</li><li>Ingreso de comprobantes</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="section-cta">
+  <div class="cta-inner reveal">
+    <div class="pill-label">Sin costo ni compromiso</div>
+    <h2 class="cta-title">La primera consulta es gratis.</h2>
+    <p class="cta-sub">Contanos tu situación y te explicamos cómo podemos ayudarte. Simple, rápido y sin vueltas.</p>
+    <a href="https://wa.me/5491164063162?text=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" class="cta-btn">
+      <svg class="wa-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.122 1.526 5.855L0 24l6.293-1.506A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.733.894.944-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+      Escribinos por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section-contact" id="contacto">
+  <div class="reveal">
+    <div class="pill-label">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+      Contacto
+    </div>
+    <h2 class="heading">¿Hablamos?<br><em>Estamos para ayudarte.</em></h2>
+    <p class="body-text">Elegí el canal que más te sea cómodo. Respondemos rápido y siempre con trato personalizado.</p>
+  </div>
+  <div class="contact-card reveal d2">
+    <p class="cc-name">Luca Maximiliano</p>
+    <p class="cc-role">Contador Público UBA · ML Asesoría</p>
+    <div class="cc-links">
+      <a href="tel:2115-9532" class="cc-link">
+        <div class="cc-icon cc-phone-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        </div>
+        <div class="cc-link-text"><strong>2115-9532</strong><span>Teléfono fijo</span></div>
+      </a>
+      <a href="https://wa.me/5491164063162?text=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" class="cc-link">
+        <div class="cc-icon cc-wa-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.122 1.526 5.855L0 24l6.293-1.506A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.733.894.944-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+        </div>
+        <div class="cc-link-text"><strong>15-6406-3162</strong><span>WhatsApp</span></div>
+      </a>
+      <a href="mailto:mlimpositivolaboral@gmail.com?subject=Consulta%20-%20ML%20Asesor%C3%ADa%20Impositiva&body=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." class="cc-link">
+        <div class="cc-icon cc-mail-icon">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        </div>
+        <div class="cc-link-text"><strong>mlimpositivolaboral@gmail.com</strong><span>Correo electrónico</span></div>
+      </a>
+    </div>
+    <div class="cc-divider"></div>
+    <div class="cc-address">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+      Ing. Brian 1526 · El Palomar · Buenos Aires
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">ML</div>
+    <span class="footer-name"><strong>ML Asesoría</strong> · Impositiva Laboral</span>
+  </div>
+  <p class="footer-copy">Un servicio acorde a tus necesidades · El Palomar, Buenos Aires</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
