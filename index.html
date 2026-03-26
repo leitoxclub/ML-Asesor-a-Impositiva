@@ -414,7 +414,7 @@ footer { padding:28px; }
 </style>
 </head>
 <body>
- 
+
 <!-- NAV -->
 <nav>
 <a href="#" class="nav-brand">
@@ -429,7 +429,7 @@ ML Asesoría
 Consulta gratis
 </a>
 </nav>
- 
+
 <!-- HERO -->
 <section class="hero">
 <div class="hero-blob hero-blob-1"></div>
@@ -472,12 +472,12 @@ Consulta sin cargo
 </div>
 </div>
 <div class="hero-testi-dots" id="testi-dots"></div>
- 
+
 <div class="hero-avail-pill">
 <span class="hero-avail-dot"></span>
 Disponible para nuevos clientes
 </div>
- 
+
 <a href="https://wa.me/5491164063162?text=Hola%20Maximiliano%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="hero-cta-card">
 <div class="hero-cta-card-icon">
 <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.122 1.526 5.855L0 24l6.293-1.506A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.733.894.944-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
@@ -487,11 +487,11 @@ Disponible para nuevos clientes
 <span>Escribinos y coordinamos →</span>
 </div>
 </a>
- 
+
 </div>
 </div>
 </section>
- 
+
 <!-- NOSOTROS -->
 <section style="background:#fff;overflow:hidden;">
 <div class="section-about">
@@ -528,7 +528,7 @@ Profesional UBA con +20 años de trayectoria
 </div>
 </div>
 </section>
- 
+
 <!-- SERVICIOS -->
 <section class="section-services" id="servicios">
 <div class="services-inner">
@@ -567,7 +567,7 @@ Nuestros servicios
 </div>
 </div>
 </section>
- 
+
 <!-- CTA BANNER -->
 <section class="section-cta">
 <div class="cta-inner reveal">
@@ -580,7 +580,7 @@ Escribinos por WhatsApp
 </a>
 </div>
 </section>
- 
+
 <!-- CONTACTO -->
 <section class="section-contact" id="contacto">
 <div class="reveal">
@@ -621,7 +621,7 @@ Ing. Brian 1526 · El Palomar · Buenos Aires
 </div>
 </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
 <div class="footer-brand">
@@ -630,7 +630,7 @@ Ing. Brian 1526 · El Palomar · Buenos Aires
 </div>
 <p class="footer-copy">Un servicio acorde a tus necesidades · El Palomar, Buenos Aires</p>
 </footer>
- 
+
 <!-- WA FLOAT BUTTON -->
 <div class="wa-float">
   <span class="wa-float-tooltip">Escribinos por WhatsApp</span>
@@ -648,7 +648,7 @@ const text = document.getElementById('mail-text');
 if (link) link.href = 'mailto:' + email + '?subject=Consulta%20-%20ML%20Asesor%C3%ADa%20Impositiva&body=Hola%20Maximiliano%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta.';
 if (text) text.textContent = email;
 })();
- 
+
 const testimonials = [
   { text: '"Maximiliano nos ordenó toda la parte impositiva del negocio. Claro, rápido y siempre disponible."', name: 'María R.', role: 'Emprendedora · CABA', initials: 'MR' },
   { text: '"Llevamos años trabajando juntos. Nunca tuvimos un problema con ARCA ni ARBA. Un profesional de confianza."', name: 'Carlos M.', role: 'Comercio · GBA', initials: 'CM' },
@@ -659,7 +659,7 @@ const testimonials = [
 ];
 let currentTesti = 0;
 let testiInterval;
- 
+
 function buildDots() {
   const container = document.getElementById('testi-dots');
   if (!container) return;
@@ -670,7 +670,7 @@ function buildDots() {
     container.appendChild(btn);
   });
 }
- 
+
 function goToTesti(idx) {
   const card = document.getElementById('testi-card');
   card.style.opacity = '0';
@@ -687,12 +687,12 @@ function goToTesti(idx) {
     card.style.transform = 'translateY(0)';
   }, 250);
 }
- 
+
 function resetInterval() {
   clearInterval(testiInterval);
   testiInterval = setInterval(() => goToTesti((currentTesti + 1) % testimonials.length), 4000);
 }
- 
+
 const card = document.getElementById('testi-card');
 if (card) {
   card.style.transition = 'opacity 0.3s, transform 0.3s';
@@ -704,8 +704,8 @@ if (card) {
   buildDots();
   resetInterval();
 }
- 
- 
+
+
 const els = document.querySelectorAll('.reveal');
 els.forEach(el => el.classList.add('hidden'));
 const obs = new IntersectionObserver((entries) => {
