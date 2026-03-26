@@ -56,6 +56,64 @@ background:var(--teal); color:#fff; text-decoration:none;
 padding:10px 22px; border-radius:50px;
 font-size:13px; font-weight:600;
 transition:all 0.25s;
+}<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML Asesoría Impositiva Laboral</title>
+<meta name="description" content="ML Asesoría Impositiva Laboral · Contador Público UBA · Más de 20 años de experiencia asesorando pymes y emprendedores en impuestos, laboral y registraciones. Primera consulta sin cargo.">
+<meta property="og:title" content="ML Asesoría Impositiva Laboral">
+<meta property="og:description" content="Contabilidad personalizada con más de 20 años de experiencia. Primera consulta sin cargo.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%230f2d3d'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='bold' fill='white'>ML</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+--navy: #0f2d3d;
+--teal: #1a7a8a;
+--teal-lt: #2a9db0;
+--sky: #e8f6f9;
+--gold: #e8a83a;
+--gold-lt: #fdf3df;
+--green: #25D366;
+--gray-50: #f8fafc;
+--gray-100:#f0f4f8;
+--gray-400:#94a3b8;
+--gray-600:#475569;
+--gray-800:#1e293b;
+--radius: 16px;
+--radius-sm: 10px;
+--shadow: 0 4px 24px rgba(15,45,61,0.10);
+--shadow-lg: 0 16px 48px rgba(15,45,61,0.15);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Plus Jakarta Sans', sans-serif; background:var(--gray-50); color:var(--gray-800); overflow-x:hidden; }
+/* NAV */
+nav {
+position:fixed; top:0; left:0; right:0; z-index:100;
+padding:16px 48px;
+display:flex; align-items:center; justify-content:space-between;
+background:rgba(255,255,255,0.88);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(15,45,61,0.07);
+}
+.nav-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo {
+width:40px; height:40px; background:var(--navy);
+border-radius:10px; display:flex; align-items:center; justify-content:center;
+font-family:'Fraunces',serif; font-size:17px; color:#fff; font-weight:600;
+}
+.nav-name { font-size:14px; font-weight:600; color:var(--navy); line-height:1.2; }
+.nav-name span { display:block; font-size:11px; font-weight:400; color:var(--gray-400); }
+.nav-cta {
+display:flex; align-items:center; gap:8px;
+background:var(--teal); color:#fff; text-decoration:none;
+padding:10px 22px; border-radius:50px;
+font-size:13px; font-weight:600;
+transition:all 0.25s;
 }
 .nav-cta:hover { background:var(--navy); transform:translateY(-1px); box-shadow:0 4px 16px rgba(26,122,138,0.35); }
 /* HERO */
@@ -148,6 +206,29 @@ cursor:pointer; text-decoration:none; transition:box-shadow 0.2s, transform 0.2s
 .hp-icon { width:38px; height:38px; border-radius:50%; background:var(--sky); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--teal); }
 .hp-text strong { display:block; color:var(--navy); font-size:13px; font-weight:700; }
 .hp-text span { color:var(--gray-400); font-size:11px; }
+/* HERO TESTIMONIAL */
+.hero-testi-wrap { display:flex; flex-direction:column; gap:14px; width:320px; }
+.hero-testi-card {
+background:#fff; border-radius:var(--radius); padding:28px;
+box-shadow:var(--shadow-lg);
+}
+.hero-testi-stars { display:flex; gap:4px; margin-bottom:14px; }
+.hero-testi-text { font-size:14px; color:var(--gray-600); line-height:1.7; font-style:italic; margin-bottom:16px; }
+.hero-testi-author { display:flex; align-items:center; gap:10px; }
+.hero-testi-avatar {
+width:36px; height:36px; border-radius:50%;
+background:var(--sky); display:flex; align-items:center; justify-content:center;
+font-size:12px; font-weight:700; color:var(--teal); flex-shrink:0;
+}
+.hero-testi-name { font-size:13px; font-weight:700; color:var(--navy); }
+.hero-testi-role { font-size:11px; color:var(--gray-400); }
+.hero-mini-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.hero-mini-stat {
+background:rgba(255,255,255,0.08); border-radius:var(--radius-sm);
+padding:16px 12px; text-align:center;
+}
+.hms-n { font-family:'Fraunces',serif; font-size:24px; font-weight:600; color:var(--gold); line-height:1; }
+.hms-l { font-size:10px; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px; }
 /* NOSOTROS */
 .section-about {
 padding:100px 80px; max-width:1280px; margin:0 auto;
@@ -358,7 +439,7 @@ nav { padding:14px 24px; }
 .hero { grid-template-columns:1fr; padding-bottom:60px; }
 .hero-left { padding:60px 28px 40px; }
 .hero-right { padding:0 28px 60px; justify-content:flex-start; }
-.hero-card-stack { max-width:300px; height:340px; }
+.hero-testi-wrap { width:100%; max-width:340px; }
 .stat { padding:16px 20px 16px 0; margin-right:20px; }
 .section-about, .section-contact { grid-template-columns:1fr; padding:64px 28px; gap:48px; }
 .section-services { padding:64px 28px; }
@@ -370,7 +451,7 @@ footer { padding:28px; }
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
 <a href="#" class="nav-brand">
@@ -385,7 +466,7 @@ ML Asesoría
 Consulta gratis
 </a>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
 <div class="hero-blob hero-blob-1"></div>
@@ -409,19 +490,42 @@ Consulta sin cargo
 </div>
 </div>
 <div class="hero-right">
-<div class="hero-card-stack">
-<div class="hcard hcard-accent"><div class="hc-num">+20</div><div class="hc-label">Años en el rubro</div></div>
-<div class="hcard hcard-main"><div class="hc-logo">ML</div><div class="hc-name">Asesoría Impositiva Laboral</div></div>
-<a href="#contacto" class="hcard hcard-pill">
-<div class="hp-icon">
-<svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+<div class="hero-testi-wrap">
+<div class="hero-testi-card">
+<div class="hero-testi-stars">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
 </div>
-<div class="hp-text"><strong>Consulta gratis</strong><span>Sin compromiso</span></div>
-</a>
+<p class="hero-testi-text">"Maximiliano nos ordenó toda la parte impositiva del negocio. Claro, rápido y siempre disponible."</p>
+<div class="hero-testi-author">
+<div class="hero-testi-avatar">MR</div>
+<div>
+<div class="hero-testi-name">María R.</div>
+<div class="hero-testi-role">Emprendedora · CABA</div>
+</div>
+</div>
+</div>
+<div class="hero-mini-stats">
+<div class="hero-mini-stat">
+<div class="hms-n">+20</div>
+<div class="hms-l">Años exp.</div>
+</div>
+<div class="hero-mini-stat">
+<div class="hms-n">100%</div>
+<div class="hms-l">Personal</div>
+</div>
+<div class="hero-mini-stat">
+<div class="hms-n">UBA</div>
+<div class="hms-l">Formación</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-
+ 
 <!-- NOSOTROS -->
 <section style="background:#fff;overflow:hidden;">
 <div class="section-about">
@@ -458,7 +562,7 @@ Profesional UBA con +20 años de trayectoria
 </div>
 </div>
 </section>
-
+ 
 <!-- SERVICIOS -->
 <section class="section-services" id="servicios">
 <div class="services-inner">
@@ -497,20 +601,20 @@ Nuestros servicios
 </div>
 </div>
 </section>
-
+ 
 <!-- CTA BANNER -->
 <section class="section-cta">
 <div class="cta-inner reveal">
 <div class="pill-label">Sin costo ni compromiso</div>
 <h2 class="cta-title">La primera consulta es gratis.</h2>
 <p class="cta-sub">Contanos tu situación y te explicamos cómo podemos ayudarte. Simple, rápido y sin vueltas.</p>
-<a href="https://wa.me/5491164063162?text=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="cta-btn">
+<a href="https://wa.me/5491164063162?text=Hola%20Maximiliano%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="cta-btn">
 <svg class="wa-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.122 1.526 5.855L0 24l6.293-1.506A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.733.894.944-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
 Escribinos por WhatsApp
 </a>
 </div>
 </section>
-
+ 
 <!-- CONTACTO -->
 <section class="section-contact" id="contacto">
 <div class="reveal">
@@ -522,7 +626,7 @@ Contacto
 <p class="body-text">Elegí el canal que más te sea cómodo. Respondemos rápido y siempre con trato personalizado.</p>
 </div>
 <div class="contact-card reveal d2">
-<p class="cc-name">Luca Maximiliano</p>
+<p class="cc-name">Maximiliano Luca</p>
 <p class="cc-role">Contador Público UBA · ML Asesoría</p>
 <div class="cc-links">
 <a href="tel:+541121159532" class="cc-link">
@@ -531,7 +635,7 @@ Contacto
 </div>
 <div class="cc-link-text"><strong>2115-9532</strong><span>Teléfono fijo</span></div>
 </a>
-<a href="https://wa.me/5491164063162?text=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="cc-link">
+<a href="https://wa.me/5491164063162?text=Hola%20Maximiliano%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="cc-link">
 <div class="cc-icon cc-wa-icon">
 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.122 1.526 5.855L0 24l6.293-1.506A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.733.894.944-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
 </div>
@@ -551,7 +655,7 @@ Ing. Brian 1526 · El Palomar · Buenos Aires
 </div>
 </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
 <div class="footer-brand">
@@ -560,11 +664,11 @@ Ing. Brian 1526 · El Palomar · Buenos Aires
 </div>
 <p class="footer-copy">Un servicio acorde a tus necesidades · El Palomar, Buenos Aires</p>
 </footer>
-
+ 
 <!-- WA FLOAT BUTTON -->
 <div class="wa-float">
   <span class="wa-float-tooltip">Escribinos por WhatsApp</span>
-  <a href="https://wa.me/5491164063162?text=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Contactar por WhatsApp">
+  <a href="https://wa.me/5491164063162?text=Hola%20Maximiliano%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="wa-float-btn" aria-label="Contactar por WhatsApp">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.122 1.526 5.855L0 24l6.293-1.506A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.733.894.944-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
   </a>
 </div>
@@ -575,10 +679,10 @@ const d = 'gmail' + '.' + 'com';
 const email = u + '@' + d;
 const link = document.getElementById('mail-link');
 const text = document.getElementById('mail-text');
-if (link) link.href = 'mailto:' + email + '?subject=Consulta%20-%20ML%20Asesor%C3%ADa%20Impositiva&body=Hola%20Luca%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta.';
+if (link) link.href = 'mailto:' + email + '?subject=Consulta%20-%20ML%20Asesor%C3%ADa%20Impositiva&body=Hola%20Maximiliano%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta.';
 if (text) text.textContent = email;
 })();
-
+ 
 if ('IntersectionObserver' in window) {
 const els = document.querySelectorAll('.reveal');
 els.forEach(el => el.classList.add('hidden'));
