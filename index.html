@@ -56,64 +56,6 @@ background:var(--teal); color:#fff; text-decoration:none;
 padding:10px 22px; border-radius:50px;
 font-size:13px; font-weight:600;
 transition:all 0.25s;
-}<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ML Asesoría Impositiva Laboral</title>
-<meta name="description" content="ML Asesoría Impositiva Laboral · Contador Público UBA · Más de 20 años de experiencia asesorando pymes y emprendedores en impuestos, laboral y registraciones. Primera consulta sin cargo.">
-<meta property="og:title" content="ML Asesoría Impositiva Laboral">
-<meta property="og:description" content="Contabilidad personalizada con más de 20 años de experiencia. Primera consulta sin cargo.">
-<meta property="og:type" content="website">
-<meta name="robots" content="index, follow">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='10' fill='%230f2d3d'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='16' font-weight='bold' fill='white'>ML</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
-<style>
-:root {
---navy: #0f2d3d;
---teal: #1a7a8a;
---teal-lt: #2a9db0;
---sky: #e8f6f9;
---gold: #e8a83a;
---gold-lt: #fdf3df;
---green: #25D366;
---gray-50: #f8fafc;
---gray-100:#f0f4f8;
---gray-400:#94a3b8;
---gray-600:#475569;
---gray-800:#1e293b;
---radius: 16px;
---radius-sm: 10px;
---shadow: 0 4px 24px rgba(15,45,61,0.10);
---shadow-lg: 0 16px 48px rgba(15,45,61,0.15);
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:'Plus Jakarta Sans', sans-serif; background:var(--gray-50); color:var(--gray-800); overflow-x:hidden; }
-/* NAV */
-nav {
-position:fixed; top:0; left:0; right:0; z-index:100;
-padding:16px 48px;
-display:flex; align-items:center; justify-content:space-between;
-background:rgba(255,255,255,0.88);
-backdrop-filter:blur(16px);
-border-bottom:1px solid rgba(15,45,61,0.07);
-}
-.nav-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
-.nav-logo {
-width:40px; height:40px; background:var(--navy);
-border-radius:10px; display:flex; align-items:center; justify-content:center;
-font-family:'Fraunces',serif; font-size:17px; color:#fff; font-weight:600;
-}
-.nav-name { font-size:14px; font-weight:600; color:var(--navy); line-height:1.2; }
-.nav-name span { display:block; font-size:11px; font-weight:400; color:var(--gray-400); }
-.nav-cta {
-display:flex; align-items:center; gap:8px;
-background:var(--teal); color:#fff; text-decoration:none;
-padding:10px 22px; border-radius:50px;
-font-size:13px; font-weight:600;
-transition:all 0.25s;
 }
 .nav-cta:hover { background:var(--navy); transform:translateY(-1px); box-shadow:0 4px 16px rgba(26,122,138,0.35); }
 /* HERO */
@@ -229,6 +171,27 @@ padding:16px 12px; text-align:center;
 }
 .hms-n { font-family:'Fraunces',serif; font-size:24px; font-weight:600; color:var(--gold); line-height:1; }
 .hms-l { font-size:10px; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.08em; margin-top:4px; }
+.hero-testi-dots { display:flex; gap:6px; justify-content:center; margin-top:14px; }
+.hero-testi-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.25); cursor:pointer; transition:background 0.3s, transform 0.3s; border:none; padding:0; }
+.hero-testi-dot.active { background:var(--gold); transform:scale(1.2); }
+.hero-avail-pill {
+display:inline-flex; align-items:center; gap:8px;
+background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18);
+border-radius:50px; padding:8px 16px;
+font-size:12px; color:rgba(255,255,255,0.85); font-weight:500;
+}
+.hero-avail-dot { width:8px; height:8px; border-radius:50%; background:#25D366; flex-shrink:0; animation:avail-pulse 2s infinite; }
+@keyframes avail-pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.hero-cta-card {
+display:flex; align-items:center; gap:14px;
+background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
+border-radius:var(--radius); padding:18px 20px;
+text-decoration:none; transition:all 0.25s;
+}
+.hero-cta-card:hover { background:rgba(255,255,255,0.13); border-color:rgba(255,255,255,0.25); transform:translateY(-2px); }
+.hero-cta-card-icon { width:44px; height:44px; border-radius:12px; background:rgba(37,211,102,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.hero-cta-card-text strong { display:block; font-size:14px; color:#fff; font-weight:700; }
+.hero-cta-card-text span { font-size:12px; color:rgba(255,255,255,0.5); }
 /* NOSOTROS */
 .section-about {
 padding:100px 80px; max-width:1280px; margin:0 auto;
@@ -491,7 +454,7 @@ Consulta sin cargo
 </div>
 <div class="hero-right">
 <div class="hero-testi-wrap">
-<div class="hero-testi-card">
+<div class="hero-testi-card" id="testi-card">
 <div class="hero-testi-stars">
 <svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
 <svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -499,29 +462,32 @@ Consulta sin cargo
 <svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
 <svg width="14" height="14" viewBox="0 0 24 24" fill="#e8a83a"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
 </div>
-<p class="hero-testi-text">"Maximiliano nos ordenó toda la parte impositiva del negocio. Claro, rápido y siempre disponible."</p>
+<p class="hero-testi-text" id="testi-text"></p>
 <div class="hero-testi-author">
-<div class="hero-testi-avatar">MR</div>
+<div class="hero-testi-avatar" id="testi-avatar"></div>
 <div>
-<div class="hero-testi-name">María R.</div>
-<div class="hero-testi-role">Emprendedora · CABA</div>
+<div class="hero-testi-name" id="testi-name"></div>
+<div class="hero-testi-role" id="testi-role"></div>
 </div>
 </div>
 </div>
-<div class="hero-mini-stats">
-<div class="hero-mini-stat">
-<div class="hms-n">+20</div>
-<div class="hms-l">Años exp.</div>
+<div class="hero-testi-dots" id="testi-dots"></div>
+ 
+<div class="hero-avail-pill">
+<span class="hero-avail-dot"></span>
+Disponible para nuevos clientes
 </div>
-<div class="hero-mini-stat">
-<div class="hms-n">100%</div>
-<div class="hms-l">Personal</div>
+ 
+<a href="https://wa.me/5491164063162?text=Hola%20Maximiliano%2C%20me%20contacto%20desde%20tu%20web%20para%20coordinar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="hero-cta-card">
+<div class="hero-cta-card-icon">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.122 1.526 5.855L0 24l6.293-1.506A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.371l-.36-.214-3.733.894.944-3.64-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
 </div>
-<div class="hero-mini-stat">
-<div class="hms-n">UBA</div>
-<div class="hms-l">Formación</div>
+<div class="hero-cta-card-text">
+<strong>Primera consulta sin cargo</strong>
+<span>Escribinos y coordinamos →</span>
 </div>
-</div>
+</a>
+ 
 </div>
 </div>
 </section>
@@ -683,7 +649,63 @@ if (link) link.href = 'mailto:' + email + '?subject=Consulta%20-%20ML%20Asesor%C
 if (text) text.textContent = email;
 })();
  
-if ('IntersectionObserver' in window) {
+const testimonials = [
+  { text: '"Maximiliano nos ordenó toda la parte impositiva del negocio. Claro, rápido y siempre disponible."', name: 'María R.', role: 'Emprendedora · CABA', initials: 'MR' },
+  { text: '"Llevamos años trabajando juntos. Nunca tuvimos un problema con ARCA ni ARBA. Un profesional de confianza."', name: 'Carlos M.', role: 'Comercio · GBA', initials: 'CM' },
+  { text: '"Nos asesoró cuando arrancamos la SRL. Explicó todo con claridad y sin vueltas. Muy recomendable."', name: 'Lucía F.', role: 'Socia fundadora · CABA', initials: 'LF' },
+  { text: '"Siempre responde rápido por WhatsApp. Para un emprendedor eso vale oro. Muy conforme con el servicio."', name: 'Diego P.', role: 'Freelancer · Zona Norte', initials: 'DP' },
+  { text: '"Nos ayudó a regularizar una situación complicada con Ingresos Brutos. Resolutivo y muy prolijo."', name: 'Ana T.', role: 'Pyme familiar · El Palomar', initials: 'AT' },
+  { text: '"Desde que lo tenemos a Maximiliano dormimos tranquilos. Sabe lo que hace y lo demuestra."', name: 'Roberto G.', role: 'Constructor · GBA Oeste', initials: 'RG' }
+];
+let currentTesti = 0;
+let testiInterval;
+ 
+function buildDots() {
+  const container = document.getElementById('testi-dots');
+  if (!container) return;
+  testimonials.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'hero-testi-dot' + (i === 0 ? ' active' : '');
+    btn.addEventListener('click', () => { goToTesti(i); resetInterval(); });
+    container.appendChild(btn);
+  });
+}
+ 
+function goToTesti(idx) {
+  const card = document.getElementById('testi-card');
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(8px)';
+  setTimeout(() => {
+    currentTesti = idx;
+    const t = testimonials[idx];
+    document.getElementById('testi-text').textContent = t.text;
+    document.getElementById('testi-name').textContent = t.name;
+    document.getElementById('testi-role').textContent = t.role;
+    document.getElementById('testi-avatar').textContent = t.initials;
+    document.querySelectorAll('.hero-testi-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    card.style.opacity = '1';
+    card.style.transform = 'translateY(0)';
+  }, 250);
+}
+ 
+function resetInterval() {
+  clearInterval(testiInterval);
+  testiInterval = setInterval(() => goToTesti((currentTesti + 1) % testimonials.length), 4000);
+}
+ 
+const card = document.getElementById('testi-card');
+if (card) {
+  card.style.transition = 'opacity 0.3s, transform 0.3s';
+  const t0 = testimonials[0];
+  document.getElementById('testi-text').textContent = t0.text;
+  document.getElementById('testi-name').textContent = t0.name;
+  document.getElementById('testi-role').textContent = t0.role;
+  document.getElementById('testi-avatar').textContent = t0.initials;
+  buildDots();
+  resetInterval();
+}
+ 
+ 
 const els = document.querySelectorAll('.reveal');
 els.forEach(el => el.classList.add('hidden'));
 const obs = new IntersectionObserver((entries) => {
@@ -696,7 +718,6 @@ obs.unobserve(e.target);
 });
 }, { threshold: 0.05 });
 els.forEach(el => obs.observe(el));
-}
 </script>
 </body>
 </html>
